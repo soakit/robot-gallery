@@ -5,7 +5,11 @@ import logo from "./assets/images/logo.svg";
 // import robotData from './mock/robots.json'
 import Robot, { RobotProps } from './components/Robot'
 
-const App: React.FC = () => {
+type IApp  = {
+   className: string;
+}
+
+const App: React.FC<IApp> = (props: IApp) => {
   const [robotGallery, setRobotGallery] = useState<any>([])
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>();
@@ -31,7 +35,7 @@ const App: React.FC = () => {
   return <div className={styles.app}>
     <div className={styles.appHeader}>
       <img src={logo} className={styles.appLogo} alt="logo" />
-      <h1>罗伯特机器人炫酷吊炸天online购物平台的名字要长</h1>
+      <h1>机器人online购物平台</h1>
     </div>
     {(error !== undefined) && <div>网站出错：{typeof error}</div>}
     {!loading ? (
