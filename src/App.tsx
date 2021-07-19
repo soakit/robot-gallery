@@ -18,7 +18,7 @@ const App: React.FC = () => {
           "https://jsonplaceholder.typicode.com/users"
         );
         const data = await responses.json();
-        setRobotGallery(data);
+        setRobotGallery(data.slice(0, 9));
       } catch (e) {
         setError(e.message);
       }
